@@ -34,7 +34,14 @@ const Home = () => {
 
     return (
       <div className="homeWrap">
-        <h1 className="title">Trending today</h1>
+        <h1
+          style={{
+            backgroundImage: `url("https://foni.club/uploads/posts/2023-02/thumbs/1675415042_foni-club-p-fon-kinoteatr-zadnii-2.jpg")`,
+          }}
+          className="title"
+        >
+          Trending today
+        </h1>
         <ul className="list">
           {trends &&
             trends.map(({ title, name, id, backdrop_path }) => {
@@ -47,8 +54,6 @@ const Home = () => {
                   backdrop_path={backdrop_path}
                 />
               );
-                
-              
             })}
         </ul>
       </div>
