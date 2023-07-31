@@ -13,7 +13,7 @@ export function fetchTrendMovie() {
    },
  };
 
-  return fetch('https://api.themoviedb.org/3/trending/all/week', options)
+  return fetch('https://api.themoviedb.org/3/trending/all/day', options)
     .then(response => response.json()
  );
    

@@ -1,5 +1,6 @@
 import Home from 'pages/home';
-import { NavLink, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
+import { Header } from './Header/Header';
 
 
 
@@ -7,7 +8,6 @@ export const App = () => {
   return (
     <div
       style={{
-        height: '100vh',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -15,14 +15,9 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      <nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/movies">Movies</NavLink>
-      </nav>
-
       <Routes>
-        <Route>
-          <Route path="/" element={<Home/>} />
+        <Route path="/" element={<Header />}>
+          <Route index element={<Home />} />
           <Route path="/movies" element={<div>Movies</div>} />
           <Route path="/movies/:movieId" element={<div>MovieDetails</div>} />
         </Route>

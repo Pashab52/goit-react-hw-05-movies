@@ -1,0 +1,33 @@
+
+
+.trend {
+    width: 500px;
+    height: 280px;
+   display: flex;
+   justify-content: center;
+    position: relative;
+    margin-bottom: -224px;
+    color: white;
+    overflow: hidden;
+    transition: transform 200ms linear;
+    outline: 8px solid lightblue;
+    border-radius: 6px;
+    
+
+}
+
+
+.trend:hover {
+
+transform: translateY(-230px);
+align-items: flex-end;
+
+}
+
+
+
+
+.item{
+    width: 500px;
+    display: flex;
+}
