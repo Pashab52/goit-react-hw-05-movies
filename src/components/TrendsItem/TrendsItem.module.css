@@ -6,25 +6,30 @@
    display: flex;
    justify-content: center;
     position: relative;
-    margin-bottom: -224px;
+    margin-bottom: -228px;
     color: white;
     overflow: hidden;
     transition: transform 200ms linear;
-    outline: 8px solid lightblue;
+    outline: 2px solid lightblue;
+    border: 1px solid lightblue;
     border-radius: 6px;
     
 
 }
 
+.trend:active{
+    border: 1px solid white;
+    outline: white;
+}
 
-.trend:hover {
+.trend:hover,
+.trend:focus {
 
-transform: translateY(-230px);
+transform: translateY(-229px);
 align-items: flex-end;
 color: lightblue;
 
 }
-
 
 
 

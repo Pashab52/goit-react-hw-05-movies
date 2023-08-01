@@ -10,7 +10,7 @@ body {
   font-family: 'DM Sans',
       sans-serif;
   min-height: 100vh;
-background-color: white;
+background-color: lightslategray;
   font-style: normal;
   
 }
@@ -60,7 +60,7 @@ code {
 
 
 .homeWrap{
-  height: 1124px;
+  height: 1388px;
   width: 1000px;
   
   margin-bottom: 20px;
@@ -83,10 +83,30 @@ code {
   border: 8px solid lightblue;
   border-radius: 8px;
   font-size: 62px;
-  margin-bottom: 30px;
-  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-top: 10px;
   font-weight: 900;
   display: flex;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.details-wrapper{
+  display: flex;
+  gap: 10px;
+  width: 1400px;
+  background-color: lightsteelblue;
+  border: 5px solid lightblue;
+}
+
+.details-img-wrapper{
+  width: 300px;
+}
+
+.details-img{
+  max-width: 300px;
+}
+
+.active{
+  color:lightblue;
 }
