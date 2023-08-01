@@ -1,4 +1,5 @@
-import Home from 'pages/home';
+import Home from 'pages/Home';
+import MovieDetails from 'pages/MovieDetails'
 import { Route, Routes } from 'react-router-dom'
 import { Header } from './Header/Header';
 
@@ -15,11 +16,12 @@ export const App = () => {
         color: '#010101',
       }}
     >
+      
       <Routes>
         <Route path="/" element={<Header />}>
           <Route index element={<Home />} />
           <Route path="/movies" element={<div>Movies</div>} />
-          <Route path="/movies/:movieId" element={<div>MovieDetails</div>} />
+          <Route path="/movies/:movieId" element={<MovieDetails />} />
         </Route>
       </Routes>
     </div>

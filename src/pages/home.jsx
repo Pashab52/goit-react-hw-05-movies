@@ -9,7 +9,8 @@ const Home = () => {
     useEffect(() => {
       
         const getTrendMovie = async () => {
-            const trendData = await fetchTrendMovie();   
+          const trendData = await fetchTrendMovie();  
+          console.log(trendData);
             const normTrend = normlazizeTrendData(trendData);
             setTrends(normTrend);
             
