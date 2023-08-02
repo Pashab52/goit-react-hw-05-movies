@@ -2,7 +2,7 @@ import Home from 'pages/Home';
 import MovieDetails from 'pages/MovieDetails'
 import { Route, Routes } from 'react-router-dom'
 // import { Header } from './Header/Header';
-import {Layout} from './Layout'
+import Layout from './Layout'
 
 
 
@@ -24,10 +24,9 @@ export const App = () => {
           <Route path="movies" element={<div>Movies</div>} />
           <Route path="movies/:movieId" element={<MovieDetails />}>
             <Route path="cast" element={<div>Cast</div>} />
-            
             <Route path="reviews" element={<div>Reviews</div>} />
-            
           </Route>
+          <Route path="*" element={<div>404</div>}/>
         </Route>
       </Routes>
     </div>

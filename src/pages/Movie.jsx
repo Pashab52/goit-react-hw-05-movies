@@ -1,7 +1,7 @@
-const { useEffect } = require("react")
+// const { useEffect } = require("react")
 
 
-const Movie = () => {
+// const Movie = () => {
 
 
-}
+// }
