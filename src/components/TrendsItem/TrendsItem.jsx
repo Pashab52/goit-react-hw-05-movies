@@ -1,5 +1,5 @@
 import css from './TrendsItem.module.css'
-import {Link, NavLink} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 
 export const TrendsItem = ({ title, name, id, backdrop_path }) => {
