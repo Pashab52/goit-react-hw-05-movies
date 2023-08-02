@@ -5,6 +5,10 @@ html {
   scroll-behavior: smooth;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: 'DM Sans',
@@ -97,6 +101,8 @@ code {
   width: 1400px;
   background-color: lightsteelblue;
   border: 5px solid lightblue;
+  margin-bottom: 10px;
+ 
 }
 
 .details-img-wrapper{
@@ -109,4 +115,22 @@ code {
 
 .active{
   color:lightblue;
+}
+
+.details-btn-wrap{
+  display: flex;
+  gap: 10px;
+}
+
+.details-btn{
+  cursor: pointer;
+  background-color: lightsteelblue;
+  border: 5px solid lightblue ;
+  padding: 5px;
+  border-radius: 1px;
+}
+
+.details-btn:hover{
+  border: 5px solid lightskyblue;
+  
 }

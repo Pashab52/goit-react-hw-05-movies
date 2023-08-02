@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 // import { Header } from './Header/Header';
 import Layout from './Layout'
 import Home from 'pages/Home';
+import { Cast } from './Cast/Cast';
 
 
 
@@ -23,7 +24,7 @@ export const App = () => {
           <Route index element={<Home />} />
           <Route path="movies" element={<div>Movies</div>} />
           <Route path="movies/:movieId" element={<MovieDetails />}>
-            <Route path="cast" element={<div>Cast</div>} />
+            <Route path="cast" element={<Cast/>} />
             <Route path="reviews" element={<div>Reviews</div>} />
           </Route>
           <Route path="*" element={<div>404</div>}/>

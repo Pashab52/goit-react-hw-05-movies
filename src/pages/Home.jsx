@@ -10,8 +10,7 @@ const Home = () => {
       
         const getTrendMovie = async () => {
           const trendData = await fetchTrendMovie();  
-          console.log(trendData);
-            const normTrend = normlazizeTrendData(trendData);
+          const normTrend = normlazizeTrendData(trendData);
             setTrends(normTrend);
             
                }

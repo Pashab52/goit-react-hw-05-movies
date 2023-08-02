@@ -27,6 +27,7 @@ const MovieDetails = () => {
     }
   });
 
+    
   function normalizeMovieDetailsData({
     poster_path,
     title,
@@ -90,18 +91,18 @@ const MovieDetails = () => {
             <span>{genresData()}</span>
           </div>
         </div>
-        <div>
-          <ul>
-            <li>
-              <Link to="cast">Cast</Link>
-            </li>
-
-            <li>
-              <Link to="reviews">Reviews</Link>
-            </li>
-          </ul>
+        <div className="details-btn-wrap">
+                 
+              <Link className="details-btn" to="cast">
+                Cast
+              </Link>
+           
+              <Link className="details-btn" to="reviews">
+                Reviews
+              </Link>
+          
         </div>
-        <Outlet/>
+        <Outlet />
       </>
     )
   );
