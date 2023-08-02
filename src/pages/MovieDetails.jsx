@@ -14,17 +14,18 @@ const MovieDetails = () => {
      console.log('render useEf MovieDetails');
     if (movieDetails){return}
     const getMovieDetails = async () => {
-      const movieDetailsData = await fetchMovieDetails(movieId);
+      
+      try {
+         const movieDetailsData = await fetchMovieDetails(movieId);
+         const normMovieDetailsData = normalizeMovieDetailsData(movieDetailsData);
+         setMovieDetails(normMovieDetailsData);
+       } catch (error) {
+         console.error(error);
+       }
 
-      const normMovieDetailsData = normalizeMovieDetailsData(movieDetailsData);
-      setMovieDetails(normMovieDetailsData);
     };
 
-    try {
-      getMovieDetails();
-    } catch (error) {
-      console.error(error);
-    }
+    getMovieDetails();
   });
 
     
@@ -79,28 +80,26 @@ const MovieDetails = () => {
               width="300px"
             />
           </div>
-          <div>
-            <h1>
+          <div className="details-txt-wrap">
+            <h1 className="details-main-title">
               {movieDetails.title} ({normalizeDate()})
             </h1>
-            <p>User score: {normalizeScore()}%</p>
-            <h2>Overview</h2>
-            <p>{movieDetails.overview}</p>
-            <h2>Genres</h2>
+            <p className="details-txt">User score: {normalizeScore()}%</p>
+            <h2 className="details-title">Overview</h2>
+            <p className="details-txt">{movieDetails.overview}</p>
+            <h2 className="details-title">Genres</h2>
 
-            <span>{genresData()}</span>
+            <span className="details-txt">{genresData()}</span>
           </div>
         </div>
         <div className="details-btn-wrap">
-                 
-              <Link className="details-btn" to="cast">
-                Cast
-              </Link>
-           
-              <Link className="details-btn" to="reviews">
-                Reviews
-              </Link>
-          
+          <Link className="details-btn" to="cast">
+            Cast
+          </Link>
+
+          <Link className="details-btn" to="reviews">
+            Reviews
+          </Link>
         </div>
         <Outlet />
       </>

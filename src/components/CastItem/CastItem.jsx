@@ -1,14 +1,30 @@
+import photo from '../img/Photo.png'
 
-export const CastItem = ({ cast_id, profile_path, name, character }) => {
+
+export const CastItem = ({ profile_path, name, character }) => {
   return (
-    <div>
+    <li className="cast-item-wrap">
       <div>
-        <img src="" alt="" />
+        {profile_path ? (
+          <img
+            src={`https://image.tmdb.org/t/p/w300${profile_path}`}
+            alt={name}
+            width="240px"
+            height="360px"
+          />
+        ) : (
+          <img
+              src={photo}
+            alt={name}
+            width="240px"
+            height="360px"
+          />
+        )}
       </div>
-      <div>
-        <h3>Name: {name}</h3>
-        <p>Character:{ character}</p>
+      <div className='cast-txt-wrap'>
+        <h3 className="cast-name">{name}</h3>
+        <p className="cast-char">Character: {character}</p>
       </div>
-    </div>
+    </li>
   );
 };

@@ -34,14 +34,14 @@ const Home = () => {
 
     return (
       <div className="homeWrap">
-        <h1
+        <div
           style={{
             backgroundImage: `url("https://foni.club/uploads/posts/2023-02/thumbs/1675415042_foni-club-p-fon-kinoteatr-zadnii-2.jpg")`,
           }}
-          className="title"
+          className="home-title-wrap"
         >
-          Trending today
-        </h1>
+          <h1 className="home-title">Trending today</h1>
+        </div>
         <ul className="list">
           {trends &&
             trends.map(({ title, name, id, backdrop_path }) => {

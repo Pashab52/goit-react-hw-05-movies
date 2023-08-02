@@ -8,16 +8,12 @@ export const Cast = () => {
     const { movieId } = useParams();
 
     useEffect(() => {
-        if (cast) { return };
+        // if (cast) { return };
      
         const getCast = async () => {
             try {
-                const castData = await fetchCast(movieId);
-              
-             
-                const normalizeCastData = getNormalizeCastData(castData.cast);
-                console.log(normalizeCastData);
-
+                const castData = await fetchCast(movieId);       
+                const normalizeCastData = getNormalizeCastData(castData.cast)
                 setCast(normalizeCastData);
             } catch (error) {
                 console.error(error)
@@ -42,7 +38,7 @@ export const Cast = () => {
 
 
     return (
-      <>
+      <ul className="cast-wrapper">
         {cast &&
           cast.map(({ cast_id, profile_path, name, character }) => {
             return (
@@ -54,6 +50,6 @@ export const Cast = () => {
               />
             );
           })}
-      </>
+      </ul>
     );
 }
