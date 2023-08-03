@@ -4,7 +4,8 @@ import { fetchMovieDetails } from 'services/movieApi';
 import { useEffect, useState } from 'react';
 
 const MovieDetails = () => {
-  const [movieDetails, setMovieDetails] = useState(null);
+    const [movieDetails, setMovieDetails] = useState(null);
+     const [error, setError] = useState(null);
   const { movieId } = useParams();
 
   // Поясніть, будь ласка, чому компонент рендериться по 3 - 4 рази (консольлог стільки разів спрацьовує)
@@ -16,11 +17,11 @@ const MovieDetails = () => {
     const getMovieDetails = async () => {
       
       try {
-         const movieDetailsData = await fetchMovieDetails(movieId);
+          const movieDetailsData = await fetchMovieDetails(movieId);
          const normMovieDetailsData = normalizeMovieDetailsData(movieDetailsData);
          setMovieDetails(normMovieDetailsData);
        } catch (error) {
-         console.error(error);
+         setError(error.message);
        }
 
     };
@@ -35,7 +36,8 @@ const MovieDetails = () => {
     release_date,
     vote_average,
     overview,
-    genres,
+      genres,
+    id,
   }) {
     return {
       poster_path,
@@ -43,7 +45,8 @@ const MovieDetails = () => {
       release_date,
       vote_average,
       overview,
-      genres,
+        genres,
+      id,
     };
   }
 
@@ -56,7 +59,8 @@ const MovieDetails = () => {
 
   // console.log(movieDetails);
 
-  const genresData = () => {
+    const genresData = () => {
+    
     return movieDetails.genres.map(({ name }) => name).join(', ');
   };
 
@@ -68,9 +72,15 @@ const MovieDetails = () => {
     return Math.round(movieDetails.vote_average * 10);
   }
 
+    console.log(movieDetails);
   return (
-    movieDetails && (
-      <>
+      movieDetails && (
+          
+          
+          
+        //   не працює чомусь перевірка на помилку з бекенду, якщо є 404, то все одно рендериться розмітка, але порожня
+              error ? <div>404</div> :
+        <>
         <div className="details-wrapper">
           <div className="details-img-wrapper">
             <img
@@ -89,7 +99,9 @@ const MovieDetails = () => {
             <p className="details-txt">{movieDetails.overview}</p>
             <h2 className="details-title">Genres</h2>
 
-            <span className="details-txt">{genresData()}</span>
+            <span className="details-txt">
+              {movieDetails.genres && genresData()}
+            </span>
           </div>
         </div>
         <div className="details-btn-wrap">

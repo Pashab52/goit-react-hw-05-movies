@@ -8,7 +8,7 @@ export const Cast = () => {
     const { movieId } = useParams();
 
     useEffect(() => {
-        // if (cast) { return };
+        if (cast) { return };
      
         const getCast = async () => {
             try {

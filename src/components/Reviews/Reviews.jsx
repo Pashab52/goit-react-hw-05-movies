@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom"
 import { fetchReviews } from "services/movieApi";
 
@@ -7,34 +7,41 @@ export const Reviews = () => {
     const [reviews, setReviews] = useState(null);
 
     useEffect(() => {
-        
-        const getReviews = async () => {
-            try {
-                const reviewsData = await fetchReviews(movieId);
-                const normalizeReviews = normalizeReviewsData(reviewsData.results);
+      if (reviews) {
+        return;
+      }
+      const getReviews = async () => {
+        try {
+          const reviewsData = await fetchReviews(movieId);
+          if (reviewsData.total_results) {
+            const normalizeReviews = normalizeReviewsData(reviewsData.results);
                 setReviews(normalizeReviews);
-
-            } catch (error) {
-                console.error(error)
-            }
+          } else {
+            return;
+          }
+        } catch (error) {
+          console.error(error);
         }
+      };
 
-        getReviews();
-    })
+      getReviews();
+    });
 
     const normalizeReviewsData = (reviewsData) => { 
-        return reviewsData.map(({ author, content, id, created_at }) => ({
-          author,
-          content,
-          id,
-          created_at,
-        }));
+        return reviewsData.map(
+          ({ author, content, id, created_at,  }) => ({
+            author,
+            content,
+            id,
+            created_at,
+          })
+        );
     };
 
 
     return (
       <ul className="rev-wrapper">
-        {reviews &&
+        {reviews ? (
           reviews.map(({ author, content, id, created_at }) => {
             return (
               <li className="rev-item-wrap" key={id}>
@@ -43,8 +50,16 @@ export const Reviews = () => {
                 <p className="rev-txt">{content}</p>
               </li>
             );
-          })}
+          })
+        ) : (
+          <li className="rev-item-wrap">
+            <p className="cast-char">
+              We don't have any reviews for this movie
+            </p>
+          </li>
+        )}
       </ul>
     );
 
 }
+

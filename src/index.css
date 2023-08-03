@@ -63,10 +63,38 @@ code {
 }
 
 
+
+.header-nav{
+  display: flex;
+  gap: 20px;
+  
+  
+}
+
+
+.header-cont {
+border: 5px solid lightblue;
+max-width: 1400px;
+ 
+  min-height: 64px; 
+  padding: 12px 24px;
+ margin-bottom: 10px;
+  color: lightblue;
+  background-color: #3f51b5;
+  /* box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12); */
+}
+
+
+
+
 .homeWrap{
   height: 1388px;
   width: 1000px;
-  
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 20px;
   border-bottom: 5px solid lightblue;
   border-radius: 3px;
@@ -119,7 +147,7 @@ code {
 }
 
 .active{
-  color:lightblue;
+  color:white;
 }
 
 .details-btn-wrap{
@@ -233,3 +261,4 @@ overflow-y: auto;
 .rev-txt{
   font-size: 16px;
 }
+

@@ -1,7 +1,9 @@
-// const { useEffect } = require("react")
 
 
-// const Movie = () => {
+
+const Movie = () => {
 
 
-// }
+}
+
+export default Movie
