@@ -11,6 +11,7 @@ const Movie = () => {
     const getMovie = async () => {
       try {
         const movieData = await fetchMovie(query);
+        console.log(movieData)
         
       } catch (error) {
         console.error(error);
