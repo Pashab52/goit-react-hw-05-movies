@@ -4,7 +4,8 @@ import { fetchReviews } from "services/movieApi";
 
 export const Reviews = () => {
     const { movieId } = useParams();
-    const [reviews, setReviews] = useState(null);
+  const [reviews, setReviews] = useState(null);
+  //  const [resolved, setResolved] = useState(null);
 
     useEffect(() => {
       if (reviews) {
@@ -25,18 +26,17 @@ export const Reviews = () => {
       };
 
       getReviews();
+      const normalizeReviewsData = reviewsData => {
+        return reviewsData.map(({ author, content, id, created_at }) => ({
+          author,
+          content,
+          id,
+          created_at,
+        }));
+      };
     });
 
-    const normalizeReviewsData = (reviewsData) => { 
-        return reviewsData.map(
-          ({ author, content, id, created_at,  }) => ({
-            author,
-            content,
-            id,
-            created_at,
-          })
-        );
-    };
+    
 
 
     return (

@@ -72,7 +72,7 @@ const MovieDetails = () => {
     return Math.round(movieDetails.vote_average * 10);
   }
 
-    console.log(movieDetails);
+    // console.log(movieDetails);
   return (
       movieDetails && (
           

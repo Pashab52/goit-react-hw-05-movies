@@ -12,9 +12,14 @@ export const Cast = () => {
      
         const getCast = async () => {
             try {
-                const castData = await fetchCast(movieId);       
+              const castData = await fetchCast(movieId);   
+              if (castData.cast.length) {
+                console.log(castData.cast.length);
                 const normalizeCastData = getNormalizeCastData(castData.cast)
                 setCast(normalizeCastData);
+              } else {
+                return
+              }
             } catch (error) {
                 console.error(error)
             
@@ -36,10 +41,10 @@ export const Cast = () => {
     
     };
 
-
+    console.log(cast)
     return (
       <ul className="cast-wrapper">
-        {cast &&
+        {cast ? (
           cast.map(({ cast_id, profile_path, name, character }) => {
             return (
               <CastItem
@@ -49,7 +54,14 @@ export const Cast = () => {
                 character={character}
               />
             );
-          })}
+          })
+        ) : (
+          <li >
+            <p className="cast-char">
+              We don't have cast info for this movie
+            </p>
+          </li>
+        )}
       </ul>
     );
 }
