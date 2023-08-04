@@ -21,7 +21,7 @@ export function fetchTrendMovie() {
 
 
 
-export function fetchMovieDetails(movieId) {
+export async function fetchMovieDetails(movieId) {
 
 const options = {
   method: 'GET',
@@ -33,9 +33,25 @@ const options = {
 };
  
 return fetch(`https://api.themoviedb.org/3/movie/${movieId}`, options)
-  .then(response => response.json())
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+
+    return response.json()
+  })
+ 
 
 }
+
+
+// return fetch(urlSearchByBreeds, options).then(response => {
+//   if (!response.ok) {
+//     throw new Error(response.status);
+//   }
+
+//   return response.json();
+// });
 
 
 export function fetchCast(movieId) {
@@ -89,6 +105,5 @@ export function fetchMovie(query) {
     options
   )
     .then(response => response.json())
-    .then(response => console.log(response))
-    .catch(err => console.error(err));
+ 
 }

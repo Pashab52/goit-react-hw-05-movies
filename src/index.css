@@ -262,3 +262,15 @@ overflow-y: auto;
   font-size: 16px;
 }
 
+.alert-wrap{
+  max-width: 1400px;
+    background-color: lightsteelblue;
+    border: 5px solid lightblue;
+    padding: 30px;
+    margin-top: 100px;
+}
+
+.alert-txt {
+  font-size: 28px;
+  text-align: center;
+}

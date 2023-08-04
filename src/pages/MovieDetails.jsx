@@ -5,31 +5,33 @@ import { useEffect, useState } from 'react';
 
 const MovieDetails = () => {
     const [movieDetails, setMovieDetails] = useState(null);
-     const [error, setError] = useState(null);
+     const [errorMes, setErrorMes] = useState(null);
   const { movieId } = useParams();
 
   // Поясніть, будь ласка, чому компонент рендериться по 3 - 4 рази (консольлог стільки разів спрацьовує)
-  console.log('render MovieDetails');
+  // console.log('render MovieDetails');
+ useEffect(() => {
+   //  console.log('render useEf MovieDetails');
+   if (movieDetails) {
+     return;
+   }
+   if (errorMes) { return }
+   const getMovieDetails = async () => {
+     try {
+       const movieDetailsData = await fetchMovieDetails(movieId);
+       console.log(movieDetailsData);
+       const normMovieDetailsData = normalizeMovieDetailsData(movieDetailsData);
+       setMovieDetails(normMovieDetailsData);
+     } catch (error) {
+       setErrorMes(error.message);
+     }
+    //  console.log(errorMes);
+   };
 
-  useEffect(() => {
-     console.log('render useEf MovieDetails');
-    if (movieDetails){return}
-    const getMovieDetails = async () => {
-      
-      try {
-          const movieDetailsData = await fetchMovieDetails(movieId);
-         const normMovieDetailsData = normalizeMovieDetailsData(movieDetailsData);
-         setMovieDetails(normMovieDetailsData);
-       } catch (error) {
-         setError(error.message);
-       }
+   getMovieDetails();
+ });
 
-    };
 
-    getMovieDetails();
-  });
-
-    
   function normalizeMovieDetailsData({
     poster_path,
     title,
@@ -72,15 +74,14 @@ const MovieDetails = () => {
     return Math.round(movieDetails.vote_average * 10);
   }
 
-    // console.log(movieDetails);
-  return (
-      movieDetails && (
-          
-          
-          
-        //   не працює чомусь перевірка на помилку з бекенду, якщо є 404, то все одно рендериться розмітка, але порожня
-              error ? <div>404</div> :
-        <>
+   
+  return errorMes ? (
+    <div className="alert-wrap">
+      <h2 className="alert-txt">404 - Page not found!</h2>
+    </div>
+  ) : (
+    movieDetails && (
+      <>
         <div className="details-wrapper">
           <div className="details-img-wrapper">
             <img
@@ -117,6 +118,52 @@ const MovieDetails = () => {
       </>
     )
   );
+  
 };
 
 export default MovieDetails;
+
+
+// return (
+//       movieDetails && (
+          
+          
+//         errorMes ? <div>404</div> :
+//         <>
+//         <div className="details-wrapper">
+//           <div className="details-img-wrapper">
+//             <img
+//               className="details-img"
+//               src={`https://image.tmdb.org/t/p/w300${movieDetails.poster_path}`}
+//               alt={movieDetails.title}
+//               width="300px"
+//             />
+//           </div>
+//           <div className="details-txt-wrap">
+//             <h1 className="details-main-title">
+//               {movieDetails.title} ({normalizeDate()})
+//             </h1>
+//             <p className="details-txt">User score: {normalizeScore()}%</p>
+//             <h2 className="details-title">Overview</h2>
+//             <p className="details-txt">{movieDetails.overview}</p>
+//             <h2 className="details-title">Genres</h2>
+
+//             <span className="details-txt">
+//               {movieDetails.genres && genresData()}
+//             </span>
+//           </div>
+//         </div>
+//         <div className="details-btn-wrap">
+//           <Link className="details-btn" to="cast">
+//             Cast
+//           </Link>
+
+//           <Link className="details-btn" to="reviews">
+//             Reviews
+//           </Link>
+//         </div>
+//         <Outlet />
+//       </>
+//     )
+//   );
+// };

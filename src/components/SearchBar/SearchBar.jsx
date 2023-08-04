@@ -4,8 +4,7 @@ export const SearchBar = props => {
    const [searchValue, setSearchValue] = useState('');
 
   const handleOnChange = event => {
-    console.log(event.currentTarget.value);
-    setSearchValue(event.currentTarget.value);
+        setSearchValue(event.currentTarget.value);
   };
 
   const handleOnSubmit = event => {
@@ -15,21 +14,23 @@ export const SearchBar = props => {
   };
 
   return (
-    <form className="form" onSubmit={handleOnSubmit}>
-      <label>
-        <input
-          className="input"
-          type="text"
-          autoComplete="off"
-          autoFocus
-          placeholder="Search movie"
-          onChange={handleOnChange}
-          value={searchValue}
-        />
-        <button className="details-btn" type="submit">
-          Search
-        </button>
-      </label>
-    </form>
+    <div>
+      <form className="form" onSubmit={handleOnSubmit}>
+        <label>
+          <input
+            className="input"
+            type="text"
+            autoComplete="off"
+            autoFocus
+            placeholder="Search movie"
+            onChange={handleOnChange}
+            value={searchValue}
+          />
+          <button className="details-btn" type="submit">
+            Search
+          </button>
+        </label>
+      </form>
+    </div>
   );
 };
