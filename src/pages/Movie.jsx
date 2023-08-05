@@ -16,7 +16,7 @@ const Movie = () => {
       const serchQuery = searchParams.get('query');
       // console.log(serchQuery);
       if (!serchQuery) { return };
-      // if (movies) { return };
+      if (movies) { return };
 
     const getMovie = async () => {
       try {
@@ -30,7 +30,7 @@ const Movie = () => {
 
     }
     getMovie()
-  },[movies, searchParams])
+  })
   
   
   const handleOnSubmit = (formData) => {

@@ -25,6 +25,7 @@ export const SearchBar = props => {
             type="text"
             autoComplete="off"
             autoFocus
+            required
             placeholder="Search movie"
             onChange={handleOnChange}
             value={searchValue}

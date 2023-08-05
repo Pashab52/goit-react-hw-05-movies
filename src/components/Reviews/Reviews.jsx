@@ -27,7 +27,7 @@ const Reviews = () => {
     };
 
     getReviews();
-  });
+  },[movieId]);
 
   const normalizeReviewsData = reviewsData => {
     return reviewsData.map(({ author, content, id, created_at }) => ({

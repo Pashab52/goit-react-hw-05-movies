@@ -9,12 +9,9 @@ const MovieDetails = () => {
      const location = useLocation();
      const backLinkHref = useRef(location.state?.from ?? '/movies');
      const { movieId } = useParams();
-  // console.log(location);
-  // console.log(backLinkHref);
-  // console.log(props)
   
 
-  // Поясніть, будь ласка, чому компонент рендериться по 3 - 4 рази (консольлог стільки разів спрацьовує)
+  // Поясніть, будь ласка, чому компонент рендериться по 3 - 4 рази (консольлог стільки разів спрацьовує) 
   // console.log('render MovieDetails');
  useEffect(() => {
    //  console.log('render useEf MovieDetails');
