@@ -1,16 +1,16 @@
-import { useLayoutEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchCast } from 'services/movieApi';
 import { CastItem } from 'components/CastItem/CastItem';
 
-export const Cast = () => {
+ const Cast = () => {
     const [cast, setCast] = useState([])
     const { movieId } = useParams();
 
   
 
  
-    useLayoutEffect(() => {
+    useEffect(() => {
       // if (cast) {
       //   return;
       // }
@@ -65,3 +65,5 @@ export const Cast = () => {
       </ul>
     );
 }
+
+export default Cast;

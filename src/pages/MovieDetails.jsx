@@ -1,15 +1,18 @@
 import { Link, useParams, Outlet, useLocation } from 'react-router-dom';
 import { fetchMovieDetails } from 'services/movieApi';
-
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { Suspense } from 'react';
 
 const MovieDetails = () => {
     const [movieDetails, setMovieDetails] = useState(null);
      const [errorMes, setErrorMes] = useState(null);
-  const { movieId } = useParams();
- const location = useLocation();
- const backLinkHref = location.state?.from ?? '/movies';
-
+     const location = useLocation();
+     const backLinkHref = useRef(location.state?.from ?? '/movies');
+     const { movieId } = useParams();
+  // console.log(location);
+  // console.log(backLinkHref);
+  // console.log(props)
+  
 
   // Поясніть, будь ласка, чому компонент рендериться по 3 - 4 рази (консольлог стільки разів спрацьовує)
   // console.log('render MovieDetails');
@@ -22,7 +25,7 @@ const MovieDetails = () => {
    const getMovieDetails = async () => {
      try {
        const movieDetailsData = await fetchMovieDetails(movieId);
-       console.log(movieDetailsData);
+      //  console.log(movieDetailsData);
        const normMovieDetailsData = normalizeMovieDetailsData(movieDetailsData);
        setMovieDetails(normMovieDetailsData);
      } catch (error) {
@@ -109,7 +112,7 @@ const MovieDetails = () => {
           </div>
         </div>
         <div className="details-btn-wrap">
-          <Link className="details-btn" to={backLinkHref}>
+          <Link className="details-btn" to={backLinkHref.current}>
             ⬅Go back
           </Link>
 
@@ -120,8 +123,11 @@ const MovieDetails = () => {
           <Link className="details-btn" to="reviews">
             Reviews
           </Link>
-        </div>
-        <Outlet />
+          </div>
+          
+        <Suspense fallback={<div>Loading...</div>}>
+          <Outlet />
+        </Suspense>
       </>
     )
   );

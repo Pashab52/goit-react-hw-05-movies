@@ -1,14 +1,14 @@
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom"
 import { fetchReviews } from "services/movieApi";
 
-export const Reviews = () => {
+const Reviews = () => {
   const [reviews, setReviews] = useState(null);
   const { movieId } = useParams();
 
   // Чомусь прогружається спочатку повідомлення, що немає відгуків, а потім тільки їх підтягує.
   //В акторах все аналогічно зроблене, але працює нормально...
-  useLayoutEffect(() => {
+  useEffect(() => {
     // if (reviews) {
     //   return;
     // }
@@ -27,7 +27,7 @@ export const Reviews = () => {
     };
 
     getReviews();
-  }, [movieId]);
+  });
 
   const normalizeReviewsData = reviewsData => {
     return reviewsData.map(({ author, content, id, created_at }) => ({
@@ -57,5 +57,6 @@ export const Reviews = () => {
       )}
     </ul>
   );
-}
+};
 
+export default Reviews;
