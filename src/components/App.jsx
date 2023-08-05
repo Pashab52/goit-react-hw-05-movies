@@ -10,7 +10,7 @@ import { Reviews } from './Reviews/Reviews';
 
 export const App = () => {
   return (
-    <div
+    <div 
       style={{
         maxWidth: '1400px',
         marginLeft: 'auto',

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+
 export const SearchBar = props => {
    const [searchValue, setSearchValue] = useState('');
 
@@ -9,12 +10,14 @@ export const SearchBar = props => {
 
   const handleOnSubmit = event => {
     event.preventDefault();
+    if (searchValue !== ''){
       props.handleOnSubmit(searchValue.trim());
       setSearchValue('');
+    } 
   };
 
   return (
-    <div>
+    <div className='form-wrap'>
       <form className="form" onSubmit={handleOnSubmit}>
         <label>
           <input

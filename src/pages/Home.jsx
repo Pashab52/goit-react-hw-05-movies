@@ -10,8 +10,7 @@ const Home = () => {
       
         const getTrendMovie = async () => {
           const trendData = await fetchTrendMovie();  
-          console.log(trendData.results)
-          const normTrend = normlazizeTrendData(trendData);
+            const normTrend = normlazizeTrendData(trendData);
             setTrends(normTrend);
             
                }
@@ -34,29 +33,31 @@ const Home = () => {
 
 
     return (
-      <div className="homeWrap">
+      <div className="main">
         <div
-          style={{
-            backgroundImage: `url("https://foni.club/uploads/posts/2023-02/thumbs/1675415042_foni-club-p-fon-kinoteatr-zadnii-2.jpg")`,
-          }}
-          className="home-title-wrap"
+          className="homeWrap"
+          
         >
-          <h1 className="home-title">Trending today</h1>
+          <div
+            className="home-title-wrap"
+          >
+            <h1 className="home-title">Trending today</h1>
+          </div>
+          <ul className="list">
+            {trends &&
+              trends.map(({ title, name, id, backdrop_path }) => {
+                return (
+                  <TrendsItem
+                    key={id}
+                    title={title}
+                    name={name}
+                    id={id}
+                    backdrop_path={backdrop_path}
+                  />
+                );
+              })}
+          </ul>
         </div>
-        <ul className="list">
-          {trends &&
-            trends.map(({ title, name, id, backdrop_path }) => {
-              return (
-                <TrendsItem
-                  key={id}
-                  title={title}
-                  name={name}
-                  id={id}
-                  backdrop_path={backdrop_path}
-                />
-              );
-            })}
-        </ul>
       </div>
     );
     

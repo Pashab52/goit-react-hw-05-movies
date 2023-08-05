@@ -6,25 +6,23 @@ import { MovieSearchItem } from "components/MovieSearchItem/MovieSearchItem";
 
 
 const Movie = () => {
+  
+  
+  const [movies, setMovies] = useState(null);
   // const [query, setQuery] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
 
     useEffect(() => {
       const serchQuery = searchParams.get('query');
-      console.log(serchQuery);
-        if (!serchQuery) {
-          return;
-        }
+      // console.log(serchQuery);
+      if (!serchQuery) { return };
+      // if (movies) { return };
 
     const getMovie = async () => {
       try {
-        
-        
         const movieData = await fetchMovie(serchQuery);
-        console.log(movieData);
         const normalizeMovieData = normalizeMovie(movieData);
-        console.log(normalizeMovieData);
-        
+        setMovies(normalizeMovieData);
         
       } catch (error) {
         console.error(error);
@@ -32,11 +30,11 @@ const Movie = () => {
 
     }
     getMovie()
-  })
+  },[movies, searchParams])
   
   
   const handleOnSubmit = (formData) => {
-    console.log(formData)
+  
     // setQuery(formData)
     setSearchParams(`query=${formData}`);
     
@@ -56,14 +54,27 @@ const Movie = () => {
 
 
     return (
-      <>
-          
-            <SearchBar handleOnSubmit={handleOnSubmit } />
-           
-            <MovieSearchItem />
-          
-            
-      </>
+      <div
+        className="movie-wrap"
+      >
+        <SearchBar handleOnSubmit={handleOnSubmit} />
+
+        <ul className="movie-list">
+          {movies &&
+            movies.map(
+              ({ id, title, poster_path, backdrop_path, release_date }) => (
+                <MovieSearchItem
+                  key={id}
+                  id={id}
+                  title={title}
+                  poster={poster_path}
+                  poster2={backdrop_path}
+                  date={release_date}
+                               />
+              )
+            )}
+        </ul>
+      </div>
     );
 
 

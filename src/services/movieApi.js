@@ -1,7 +1,5 @@
 
 
-
-
 export function fetchTrendMovie() {
 
  const options = {
@@ -44,14 +42,6 @@ return fetch(`https://api.themoviedb.org/3/movie/${movieId}`, options)
 
 }
 
-
-// return fetch(urlSearchByBreeds, options).then(response => {
-//   if (!response.ok) {
-//     throw new Error(response.status);
-//   }
-
-//   return response.json();
-// });
 
 
 export function fetchCast(movieId) {

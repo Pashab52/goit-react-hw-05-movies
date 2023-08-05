@@ -22,8 +22,7 @@
     outline: white;
 }
 
-.trend:hover,
-.trend:focus {
+.trend:hover {
 
 transform: translateY(-229px);
 align-items: flex-end;

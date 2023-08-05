@@ -73,14 +73,17 @@ code {
 
 
 .header-cont {
+
 border: 5px solid lightblue;
-max-width: 1400px;
- 
+/* width: 100%;
+ position: fixed;
+ z-index: 999; */
   min-height: 64px; 
-  padding: 12px 24px;
+  padding: 10px 24px 14px 24px;
  margin-bottom: 10px;
   color: lightblue;
   background-color: #3f51b5;
+  
   /* box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12); */
 }
@@ -99,6 +102,12 @@ max-width: 1400px;
   border-bottom: 5px solid lightblue;
   border-radius: 3px;
   overflow: hidden;
+  /* max-width: 1600px;
+    background-image: url(./components/img/kinoteatr.jpg);
+    background-size: fit;
+    background-repeat: no-repeat;
+    background-attachment: fixed; */
+
   
 }
 .list{
@@ -111,14 +120,12 @@ max-width: 1400px;
 
 .home-title-wrap{
     width: 1000px;
-    height: 250px;
-    border: 8px solid lightblue;
+    
+    /* border: 8px solid lightblue; */
     margin-bottom: 20px;
-    margin-top: 10px;
-    background-size: cover;
-    background-repeat: no-repeat;
+    margin-top: 100px;
     border-radius: 8px;
-    padding-top: 120px;
+    
     
 }
 
@@ -148,6 +155,9 @@ max-width: 1400px;
 
 .active{
   color:white;
+  text-decoration: underline solid white;
+  text-underline-offset: 5px;
+  
 }
 
 .details-btn-wrap{
@@ -156,20 +166,29 @@ max-width: 1400px;
   margin-bottom: 10px;
 }
 
+
 .details-btn{
   cursor: pointer;
   text-align: center;
   width: 147px;
-  font-size: 30px;
+  font-size: 26px;
   background-color: lightsteelblue;
   border: 5px solid lightblue ;
   padding: 5px;
   border-radius: 1px;
-  
+  transition: background-color 200ms linear, color 200ms linear;
+
+}
+
+.details-btn:first-child{
+  padding-left: 0;
 }
 
 .details-btn:hover{
-  border: 5px solid lightskyblue;
+ 
+  background-color: #3f51b5;
+  color: white;
+  
   
 }
 
@@ -177,13 +196,12 @@ max-width: 1400px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   gap: 10px;
   max-width: 1400px;
-  background-color: lightsteelblue;
-  border: 5px solid lightblue;
+ 
   margin-bottom: 10px;
-  padding: 10px;
+  
 
 }
 
@@ -273,4 +291,96 @@ overflow-y: auto;
 .alert-txt {
   font-size: 28px;
   text-align: center;
+}
+
+
+
+.movie-wrap{
+    
+    /* margin-bottom: 20px;
+    margin-top: 10px; */
+ 
+    max-width: 1400px;
+    /* height: 917px; */
+}
+
+/* .main{
+    margin-left: auto;
+    margin-right: auto;
+  max-width: 1600px;
+  background-image: url(./components/img/kinoteatr.jpg);
+  background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+   
+} */
+
+.movie-list{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+gap: 10px;
+}
+
+.movie-item{
+  width: 330px;
+
+  height: auto;
+  border: 5px solid lightblue;
+}
+
+.form-wrap{
+  padding-top: 50px;
+  margin-bottom: 10px;
+  display: flex;
+  gap: 10px;
+  max-width: 1400px;
+  height: 250px;
+background-image: url(./components/img/cinema.jpg);
+background-size: contain;
+background-position: 440px 0;
+ 
+border: 5px solid lightblue;
+
+}
+
+.movie-txt-wrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightblue;
+  font-size: 20px;
+  overflow-x: auto;
+  padding: 5px;
+  width: 100%;
+  height: 56px;
+}
+
+
+.form{
+  margin-left: auto;
+    margin-right: auto;
+}
+
+.input {
+  display: inline-block;
+  width: 400px;
+  height: 55px;
+  margin-right: 10px;
+    background-color: lightsteelblue;
+    border: 5px solid lightblue;
+    padding: 5px;
+  font: inherit;
+  font-size: 20px;
+  
+  outline: none;
+}
+
+label{
+  display: flex;
+}
+
+.input::placeholder {
+  font: inherit;
+  font-size: 18px;
 }
