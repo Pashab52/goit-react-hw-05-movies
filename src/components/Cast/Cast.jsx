@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchCast } from 'services/movieApi';
 import { CastItem } from 'components/CastItem/CastItem';
+import { Loader } from 'components/Loader/Loader';
+
 
  const Cast = () => {
-    const [cast, setCast] = useState([])
+   const [cast, setCast] = useState([])
+     const [showLoader, setShowLoader] = useState(false);
     const { movieId } = useParams();
 
-  
 
  
     useEffect(() => {
@@ -16,6 +18,7 @@ import { CastItem } from 'components/CastItem/CastItem';
       // }
 
       const getCast = async () => {
+        setShowLoader(true)
         try {
           const castData = await fetchCast(movieId);
           if (castData.cast.length) {
@@ -26,7 +29,7 @@ import { CastItem } from 'components/CastItem/CastItem';
           }
         } catch (error) {
           console.error(error);
-        }
+        } finally{ setShowLoader(false) }
       };
 
       getCast();
@@ -43,7 +46,8 @@ import { CastItem } from 'components/CastItem/CastItem';
     };
 
        return (
-      <ul className="cast-wrapper">
+      showLoader ? <Loader /> :
+   <ul className="cast-wrapper">
         {cast ? (
           cast.map(({ cast_id, profile_path, name, character }) => {
             return (

@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { Loader } from 'components/Loader/Loader';
 
 
 export const SearchBar = props => {
-   const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState('');
+  // const [showLoader, setShowLoader] = useState(false);
 
   const handleOnChange = event => {
         setSearchValue(event.currentTarget.value);
@@ -30,9 +32,9 @@ export const SearchBar = props => {
             onChange={handleOnChange}
             value={searchValue}
           />
-          <button className="details-btn" type="submit">
+          {props.showLoader ? <Loader/> : <button className="details-btn" type="submit">
             Search
-          </button>
+          </button>}
         </label>
       </form>
     </div>

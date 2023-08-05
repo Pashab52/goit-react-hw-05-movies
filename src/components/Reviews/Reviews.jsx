@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom"
 import { fetchReviews } from "services/movieApi";
+import { Loader } from 'components/Loader/Loader';
+
 
 const Reviews = () => {
-  const [reviews, setReviews] = useState(null);
+  const [reviews, setReviews] = useState([]);
+  const [showLoader, setShowLoader] = useState(false);
   const { movieId } = useParams();
 
-  // Чомусь прогружається спочатку повідомлення, що немає відгуків, а потім тільки їх підтягує.
-  //В акторах все аналогічно зроблене, але працює нормально...
+
   useEffect(() => {
+    setShowLoader(true);
     // if (reviews) {
     //   return;
     // }
@@ -23,7 +26,7 @@ const Reviews = () => {
         }
       } catch (error) {
         console.error(error);
-      }
+      } finally {setShowLoader(false)}
     };
 
     getReviews();
@@ -38,7 +41,9 @@ const Reviews = () => {
     }));
   };
 
-  return (
+  return showLoader ? (
+    <Loader />
+  ) : (
     <ul className="rev-wrapper">
       {reviews ? (
         reviews.map(({ author, content, id, created_at }) => {

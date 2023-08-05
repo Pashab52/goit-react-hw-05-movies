@@ -2,14 +2,15 @@ import { Link, useParams, Outlet, useLocation } from 'react-router-dom';
 import { fetchMovieDetails } from 'services/movieApi';
 import { useEffect, useRef, useState } from 'react';
 import { Suspense } from 'react';
+import { Loader } from 'components/Loader/Loader';
 
 const MovieDetails = () => {
     const [movieDetails, setMovieDetails] = useState(null);
      const [errorMes, setErrorMes] = useState(null);
      const location = useLocation();
      const backLinkHref = useRef(location.state?.from ?? '/movies');
-     const { movieId } = useParams();
-  
+  const { movieId } = useParams();
+
 
   // Поясніть, будь ласка, чому компонент рендериться по 3 - 4 рази (консольлог стільки разів спрацьовує) 
   // console.log('render MovieDetails');
@@ -113,16 +114,16 @@ const MovieDetails = () => {
             ⬅Go back
           </Link>
 
-          <Link className="details-btn" to="cast">
-            Cast
-          </Link>
+            <Link className="details-btn" to="cast">
+              Cast
+            </Link>
 
-          <Link className="details-btn" to="reviews">
-            Reviews
-          </Link>
+           <Link className="details-btn" to="reviews">
+              Reviews
+            </Link>
           </div>
           
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loader/>}>
           <Outlet />
         </Suspense>
       </>

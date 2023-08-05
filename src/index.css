@@ -372,9 +372,10 @@ border: 5px solid lightblue;
     padding: 5px;
   font: inherit;
   font-size: 20px;
-  
   outline: none;
+
 }
+
 
 label{
   display: flex;
@@ -383,4 +384,15 @@ label{
 .input::placeholder {
   font: inherit;
   font-size: 18px;
+}
+
+.MagnifyingGlass-wrapper {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+
+
+}
+.wrap {
+  margin-top: -10px;
 }
