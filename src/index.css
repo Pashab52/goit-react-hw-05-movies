@@ -91,16 +91,17 @@ border: 5px solid lightblue;
 
 
 
-.homeWrap{
+.home-wrap{
+  max-width: 1400px;
+  background-color: lightsteelblue;
   height: 1388px;
   width: 1000px;
   display: flex;
   flex-direction: column;
-  margin-left: auto;
-  margin-right: auto;
+ 
   margin-bottom: 20px;
-  border-bottom: 5px solid lightblue;
-  border-radius: 3px;
+  border: 5px solid lightblue;
+  border-radius: 1px;
   overflow: hidden;
   /* max-width: 1600px;
     background-image: url(./components/img/kinoteatr.jpg);
@@ -112,14 +113,14 @@ border: 5px solid lightblue;
 }
 .list{
  
-  width: 500px;
+  max-width: 500px;
   margin-left: auto;
     margin-right: auto;
     
 }
 
 .home-title-wrap{
-    width: 1000px;
+    max-width: 1400px;
     
     /* border: 8px solid lightblue; */
     margin-bottom: 20px;
@@ -151,6 +152,8 @@ border: 5px solid lightblue;
 
 .details-img{
   max-width: 300px;
+  height: 450px;
+  
 }
 
 .active{
@@ -227,6 +230,14 @@ border: 5px solid lightblue;
   text-align: center;
   font-size: 16px;
   
+}
+
+.nocast-item-wrap{
+    border: 5px solid lightblue;
+      max-width: 1400px;
+        background-color: lightsteelblue;
+        padding: 10px;
+        width: 100%;
 }
 
 .cast-txt-wrap{
@@ -315,24 +326,13 @@ overflow-y: auto;
    
 } */
 
-.movie-list{
-display: flex;
-flex-wrap: wrap;
-justify-content: space-between;
-gap: 10px;
-}
-
-.movie-item{
-  width: 330px;
-
-  height: auto;
-  border: 5px solid lightblue;
-}
 
 .form-wrap{
   padding-top: 50px;
   margin-bottom: 10px;
   display: flex;
+  align-items: baseline;
+  justify-content: center;
   gap: 10px;
   max-width: 1400px;
   height: 250px;
@@ -344,6 +344,31 @@ border: 5px solid lightblue;
 
 }
 
+.form {
+ 
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  display: block;
+  width: 400px;
+  height: 50px;
+  margin-right: 10px;
+  background-color: lightsteelblue;
+  border: 5px solid lightblue;
+  padding: 5px;
+  font: inherit;
+  font-size: 20px;
+  outline: none;
+  transition: border 200ms linear;
+
+}
+
+.input:hover {
+  border: 5px solid #3f51b5;
+}
+
 .movie-txt-wrap{
   display: flex;
   justify-content: center;
@@ -352,34 +377,35 @@ border: 5px solid lightblue;
   font-size: 20px;
   overflow-x: auto;
   padding: 5px;
-  width: 100%;
-  height: 56px;
-}
-
-
-.form{
-  margin-left: auto;
-    margin-right: auto;
-}
-
-.input {
-  display: inline-block;
-  width: 400px;
-  height: 55px;
-  margin-right: 10px;
-    background-color: lightsteelblue;
-    border: 5px solid lightblue;
-    padding: 5px;
-  font: inherit;
-  font-size: 20px;
-  outline: none;
+  
+  height: 60px;
+  border: 2px solid lightblue;
 
 }
 
-
-label{
+.movie-list {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
 }
+
+.movie-item {
+  width: 330px;
+  height: auto;
+  border: 5px solid lightblue;
+}
+
+.movie-item:hover {
+  scale: 1.05;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.4), 0 28px 30px rgba(0, 0, 0, 0.3);
+}
+
+.movie-search-poster{
+  height: 182px;
+  object-fit: cover
+}
+
 
 .input::placeholder {
   font: inherit;
@@ -395,4 +421,10 @@ label{
 }
 .wrap {
   margin-top: -10px;
+}
+
+.details-noimg{
+  object-position: 1px 0;
+  object-fit: cover;
+  
 }

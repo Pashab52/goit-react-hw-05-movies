@@ -45,7 +45,7 @@ const Reviews = () => {
     <Loader />
   ) : (
     <ul className="rev-wrapper">
-      {reviews ? (
+      {reviews.length ? (
         reviews.map(({ author, content, id, created_at }) => {
           return (
             <li className="rev-item-wrap" key={id}>

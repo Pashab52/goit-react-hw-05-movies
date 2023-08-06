@@ -32,10 +32,10 @@ export const SearchBar = props => {
             onChange={handleOnChange}
             value={searchValue}
           />
+        </label>
           {props.showLoader ? <Loader/> : <button className="details-btn" type="submit">
             Search
           </button>}
-        </label>
       </form>
     </div>
   );

@@ -3,6 +3,7 @@ import { fetchMovieDetails } from 'services/movieApi';
 import { useEffect, useRef, useState } from 'react';
 import { Suspense } from 'react';
 import { Loader } from 'components/Loader/Loader';
+import poster from '../components/img/poster.jpg';
 
 const MovieDetails = () => {
     const [movieDetails, setMovieDetails] = useState(null);
@@ -88,16 +89,27 @@ const MovieDetails = () => {
       <>
         <div className="details-wrapper">
           <div className="details-img-wrapper">
-            <img
-              className="details-img"
-              src={`https://image.tmdb.org/t/p/w300${movieDetails.poster_path}`}
-              alt={movieDetails.title}
-              width="300px"
-            />
+            {movieDetails.poster_path ? (
+              <img
+                className="details-img"
+                src={`https://image.tmdb.org/t/p/w300${movieDetails.poster_path}`}
+                alt={movieDetails.title}
+                width="300px"
+                height="450px"
+              />
+            ) : (
+              <img
+                className="details-noimg details-img"
+                src={poster}
+                alt={movieDetails.title}
+                width="300px"
+                height="450px"
+              />
+            )}
           </div>
           <div className="details-txt-wrap">
             <h1 className="details-main-title">
-              {movieDetails.title} ({normalizeDate()})
+                {movieDetails.title} {movieDetails.release_date && `(${normalizeDate()})`}
             </h1>
             <p className="details-txt">User score: {normalizeScore()}%</p>
             <h2 className="details-title">Overview</h2>
@@ -114,16 +126,16 @@ const MovieDetails = () => {
             ⬅Go back
           </Link>
 
-            <Link className="details-btn" to="cast">
-              Cast
-            </Link>
+          <Link className="details-btn" to="cast">
+            Cast
+          </Link>
 
-           <Link className="details-btn" to="reviews">
-              Reviews
-            </Link>
-          </div>
-          
-        <Suspense fallback={<Loader/>}>
+          <Link className="details-btn" to="reviews">
+            Reviews
+          </Link>
+        </div>
+
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </>

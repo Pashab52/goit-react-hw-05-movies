@@ -35,7 +35,8 @@ const Home = () => {
     return (
       <div className="main">
         <div
-          className="homeWrap"
+          className="home-wrap"
+          
           
         >
           <div
@@ -43,20 +44,24 @@ const Home = () => {
           >
             <h1 className="home-title">Trending today</h1>
           </div>
-          <ul className="list">
-            {trends &&
-              trends.map(({ title, name, id, backdrop_path }) => {
-                return (
-                  <TrendsItem
-                    key={id}
-                    title={title}
-                    name={name}
-                    id={id}
-                    backdrop_path={backdrop_path}
-                  />
-                );
-              })}
-          </ul>
+
+          <div>
+            <ul className="list">
+              {trends &&
+                trends.map(({ title, name, id, backdrop_path }) => {
+                  return (
+                    <TrendsItem
+                      key={id}
+                      title={title}
+                      name={name}
+                      id={id}
+                      backdrop_path={backdrop_path}
+                    />
+                  );
+                })}
+            </ul>
+          </div>
+          
         </div>
       </div>
     );

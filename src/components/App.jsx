@@ -16,7 +16,7 @@ const Reviews = lazy(() => import('./Reviews/Reviews'));
 
 export const App = () => {
   return (
-    <div 
+    <div
       style={{
         maxWidth: '1400px',
         marginLeft: 'auto',
@@ -33,7 +33,14 @@ export const App = () => {
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>
-          <Route path="*" element={<div>404</div>} />
+          <Route
+            path="*"
+            element={
+              <div className="alert-wrap">
+                <h2 className="alert-txt">404 - Page not found!</h2>
+              </div>
+            }
+          />
         </Route>
       </Routes>
     </div>

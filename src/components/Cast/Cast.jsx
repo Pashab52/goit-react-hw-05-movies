@@ -45,29 +45,30 @@ import { Loader } from 'components/Loader/Loader';
     
     };
 
-       return (
-      showLoader ? <Loader /> :
-   <ul className="cast-wrapper">
-        {cast ? (
-          cast.map(({ cast_id, profile_path, name, character }) => {
-            return (
-              <CastItem
-                key={cast_id}
-                profile_path={profile_path}
-                name={name}
-                character={character}
-              />
-            );
-          })
-        ) : (
-          <li >
-            <p className="cast-char">
-              We don't have cast info for this movie
-            </p>
-          </li>
-        )}
-      </ul>
-    );
+       return showLoader ? (
+         <Loader />
+       ) : (
+         <ul className="cast-wrapper">
+           {cast.length ? (
+             cast.map(({ cast_id, profile_path, name, character }) => {
+               return (
+                 <CastItem
+                   key={cast_id}
+                   profile_path={profile_path}
+                   name={name}
+                   character={character}
+                 />
+               );
+             })
+           ) : (
+             <li className="nocast-item-wrap">
+               <p className="cast-char">
+                 We don't have cast info for this movie
+               </p>
+             </li>
+           )}
+         </ul>
+       );
 }
 
 export default Cast;
