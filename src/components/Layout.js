@@ -10,10 +10,13 @@ const Layout = () => {
         <Header />
       </header>
       <main>
-        <Suspense fallback={<Loader/>}>
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </main>
+      <footer>
+        <div className="footer"></div>
+      </footer>
     </>
   );
 };

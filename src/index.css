@@ -17,6 +17,7 @@ body {
 background-color: lightslategray;
   font-style: normal;
   
+  
 }
 
 h1,
@@ -68,9 +69,19 @@ code {
   display: flex;
   gap: 20px;
   
-  
 }
 
+.header-link {
+  text-decoration: none;
+  text-underline-offset: 5px;
+ 
+}
+
+.header-link:hover{
+  
+  text-decoration: underline solid white;
+  text-underline-offset: 5px;
+}
 
 .header-cont {
 
@@ -80,7 +91,7 @@ border: 5px solid lightblue;
  z-index: 999; */
   min-height: 64px; 
   padding: 10px 24px 14px 24px;
- margin-bottom: 10px;
+ margin-bottom: 5px;
   color: lightblue;
   background-color: #3f51b5;
   
@@ -88,44 +99,55 @@ border: 5px solid lightblue;
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12); */
 }
 
+.footer{
+  width: 1400px;
+  height: 15px;
+  border: 5px solid lightblue;
 
+    /* padding: 10px 24px 14px 24px; */
+    margin-bottom: 5px;
+    color: lightblue;
+    background-color: #3f51b5;
+    
+}
+
+.list-wrap{
+  display: flex;
+  justify-content: space-evenly;
+}
 
 
 .home-wrap{
   max-width: 1400px;
   background-color: lightsteelblue;
-  height: 1388px;
-  width: 1000px;
+  height: 1202px;
+ padding-top: 20px;
   display: flex;
   flex-direction: column;
  
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   border: 5px solid lightblue;
   border-radius: 1px;
   overflow: hidden;
-  /* max-width: 1600px;
-    background-image: url(./components/img/kinoteatr.jpg);
-    background-size: fit;
-    background-repeat: no-repeat;
-    background-attachment: fixed; */
-
   
 }
+
 .list{
  
   max-width: 500px;
-  margin-left: auto;
-    margin-right: auto;
+  /* margin-left: auto;
+    margin-right: auto; */
     
 }
 
 .home-title-wrap{
-    max-width: 1400px;
-    
-    /* border: 8px solid lightblue; */
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 8px solid #3f51b5;
     margin-bottom: 20px;
-    margin-top: 100px;
-    border-radius: 8px;
+    border-radius: 8px; 
+    padding: 20px;
     
     
 }
@@ -134,6 +156,15 @@ border: 5px solid lightblue;
   font-size: 62px;
   text-align: center;
   font-weight: 900;  
+  color:#3f51b5;
+}
+
+.trend-title{
+  font-size: 48px;
+    text-align: center;
+    font-weight: 900;
+    margin-bottom: 10px;
+    color: #3f51b5;
 }
 
 .details-wrapper{
@@ -142,7 +173,7 @@ border: 5px solid lightblue;
   max-width: 1400px;
   background-color: lightsteelblue;
   border: 5px solid lightblue;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
  
 }
 
@@ -166,7 +197,7 @@ border: 5px solid lightblue;
 .details-btn-wrap{
   display: flex;
   gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 
@@ -203,7 +234,7 @@ border: 5px solid lightblue;
   gap: 10px;
   max-width: 1400px;
  
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   
 
 }
@@ -297,6 +328,7 @@ overflow-y: auto;
     border: 5px solid lightblue;
     padding: 30px;
     margin-top: 100px;
+    margin-bottom: 5px;
 }
 
 .alert-txt {
@@ -307,29 +339,13 @@ overflow-y: auto;
 
 
 .movie-wrap{
-    
-    /* margin-bottom: 20px;
-    margin-top: 10px; */
- 
-    max-width: 1400px;
-    /* height: 917px; */
+  max-width: 1400px;
+  
 }
-
-/* .main{
-    margin-left: auto;
-    margin-right: auto;
-  max-width: 1600px;
-  background-image: url(./components/img/kinoteatr.jpg);
-  background-size: contain;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-   
-} */
 
 
 .form-wrap{
   padding-top: 50px;
-  margin-bottom: 10px;
   display: flex;
   align-items: baseline;
   justify-content: center;
@@ -339,7 +355,7 @@ overflow-y: auto;
 background-image: url(./components/img/cinema.jpg);
 background-size: contain;
 background-position: 440px 0;
- 
+ margin-bottom: 5px;
 border: 5px solid lightblue;
 
 }
@@ -388,6 +404,8 @@ border: 5px solid lightblue;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 10px;
+  margin-bottom: 5px;
+  
 }
 
 .movie-item {

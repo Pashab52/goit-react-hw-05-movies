@@ -19,6 +19,7 @@ export const App = () => {
     <div
       style={{
         maxWidth: '1400px',
+        height: '100vh',
         marginLeft: 'auto',
         marginRight: 'auto',
         fontSize: 40,
