@@ -13,10 +13,13 @@ const MovieDetails = () => {
   const { movieId } = useParams();
 
 
+
+
+
   // Поясніть, будь ласка, чому компонент рендериться по 3 - 4 рази (консольлог стільки разів спрацьовує) 
-  // console.log('render MovieDetails');
+  console.log('render MovieDetails');
  useEffect(() => {
-   //  console.log('render useEf MovieDetails');
+    console.log('render useEf MovieDetails');
    if (movieDetails) {
      return;
    }
@@ -24,13 +27,12 @@ const MovieDetails = () => {
    const getMovieDetails = async () => {
      try {
        const movieDetailsData = await fetchMovieDetails(movieId);
-      //  console.log(movieDetailsData);
        const normMovieDetailsData = normalizeMovieDetailsData(movieDetailsData);
        setMovieDetails(normMovieDetailsData);
      } catch (error) {
        setErrorMes(error.message);
      }
-    //  console.log(errorMes);
+
    };
 
    getMovieDetails();
