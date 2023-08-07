@@ -4,6 +4,7 @@ import { fetchMovie } from 'services/movieApi';
 import { useSearchParams } from 'react-router-dom';
 import { MovieSearchItem } from 'components/MovieSearchItem/MovieSearchItem';
 
+
 const Movie = () => {
   const [movies, setMovies] = useState(null);
   const [showLoader, setShowLoader] = useState(false);

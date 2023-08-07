@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useLayoutEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchCast } from 'services/movieApi';
 import { CastItem } from 'components/CastItem/CastItem';
@@ -10,9 +10,8 @@ import { Loader } from 'components/Loader/Loader';
      const [showLoader, setShowLoader] = useState(false);
     const { movieId } = useParams();
 
-
  
-    useEffect(() => {
+    useLayoutEffect(() => {
       // if (cast) {
       //   return;
       // }
@@ -25,7 +24,7 @@ import { Loader } from 'components/Loader/Loader';
             const normalizeCastData = getNormalizeCastData(castData.cast);
             setCast(normalizeCastData);
           } else {
-            return;
+              return;
           }
         } catch (error) {
           console.error(error);

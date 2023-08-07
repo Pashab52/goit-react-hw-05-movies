@@ -6,7 +6,8 @@ import { Loader } from 'components/Loader/Loader';
 import poster from '../components/img/poster.jpg';
 
 const MovieDetails = () => {
-    const [movieDetails, setMovieDetails] = useState(null);
+  const [movieDetails, setMovieDetails] = useState(null);
+  const [showLoader, setShowLoader] = useState(false);
      const [errorMes, setErrorMes] = useState(null);
      const location = useLocation();
      const backLinkHref = useRef(location.state?.from ?? '/movies');
@@ -25,13 +26,14 @@ const MovieDetails = () => {
    }
    if (errorMes) { return }
    const getMovieDetails = async () => {
+     setShowLoader(true);
      try {
        const movieDetailsData = await fetchMovieDetails(movieId);
        const normMovieDetailsData = normalizeMovieDetailsData(movieDetailsData);
        setMovieDetails(normMovieDetailsData);
      } catch (error) {
        setErrorMes(error.message);
-     }
+     } finally{setShowLoader(false);}
 
    };
 
@@ -82,7 +84,9 @@ const MovieDetails = () => {
   }
 
    
-  return errorMes ? (
+  return showLoader ? (
+            <Loader />
+          ) : errorMes ? (
     <div className="alert-wrap">
       <h2 className="alert-txt">404 - Page not found!</h2>
     </div>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { useParams } from "react-router-dom"
 import { fetchReviews } from "services/movieApi";
 import { Loader } from 'components/Loader/Loader';
@@ -10,7 +10,7 @@ const Reviews = () => {
   const { movieId } = useParams();
 
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setShowLoader(true);
     // if (reviews) {
     //   return;
@@ -18,19 +18,18 @@ const Reviews = () => {
     const getReviews = async () => {
       try {
         const reviewsData = await fetchReviews(movieId);
-        if (reviewsData.total_results) {
-          const normalizeReviews = normalizeReviewsData(reviewsData.results);
-          setReviews(normalizeReviews);
-        } else {
-          return;
-        }
+
+        const normalizeReviews = normalizeReviewsData(reviewsData.results);
+        setReviews(normalizeReviews);
       } catch (error) {
         console.error(error);
-      } finally {setShowLoader(false)}
+      } finally {
+        setShowLoader(false);
+      }
     };
 
     getReviews();
-  },[movieId]);
+  }, [movieId]);
 
   const normalizeReviewsData = reviewsData => {
     return reviewsData.map(({ author, content, id, created_at }) => ({
