@@ -169,6 +169,7 @@ border: 5px solid lightblue;
   /* border: 8px solid #3f51b5; */
   padding: 10px 50px;
   border-radius: 8px;
+  
 }
 
 .trend-title{
@@ -177,6 +178,8 @@ border: 5px solid lightblue;
     font-weight: 900;
     margin-bottom: 10px;
     color: #3f51b5;
+    -webkit-text-stroke: 1px #FFFFFF;
+    
 }
 
 .details-wrapper{
