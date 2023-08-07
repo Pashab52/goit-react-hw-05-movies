@@ -7,13 +7,11 @@ import { MovieSearchItem } from 'components/MovieSearchItem/MovieSearchItem';
 const Movie = () => {
   const [movies, setMovies] = useState(null);
   const [showLoader, setShowLoader] = useState(false);
-  // const [query, setQuery] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     const serchQuery = searchParams.get('query');
-    // console.log(serchQuery);
-    if (!serchQuery) {
+      if (!serchQuery) {
       return;
     }
     // if (movies) { return };

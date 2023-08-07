@@ -316,6 +316,7 @@ overflow-y: auto;
 .rev-wrapper{
   max-width: 1400px;
     background-color: lightsteelblue;
+    margin-bottom: 5px;
 }
 
 .rev-txt{
@@ -349,7 +350,6 @@ overflow-y: auto;
   display: flex;
   align-items: baseline;
   justify-content: center;
-  gap: 10px;
   max-width: 1400px;
   height: 250px;
 background-image: url(./components/img/cinema.jpg);
@@ -361,16 +361,26 @@ border: 5px solid lightblue;
 }
 
 .form {
- 
+  width: 557px;
   display: flex;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+ 
 }
+
+
+.wrap{
+  margin-left: 30px;
+ 
+}
+
 
 .input {
   display: block;
   width: 400px;
   height: 50px;
-  margin-right: 10px;
+  /* margin-right: 10px; */
   background-color: lightsteelblue;
   border: 5px solid lightblue;
   padding: 5px;
@@ -437,9 +447,7 @@ border: 5px solid lightblue;
 
 
 }
-.wrap {
-  margin-top: -10px;
-}
+
 
 .details-noimg{
   object-position: 1px 0;
