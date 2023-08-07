@@ -9,15 +9,14 @@
    justify-content: center;
     position: relative;
     margin-bottom: -232px;
-    color: white;
+    
     overflow: hidden;
     transition: transform 200ms linear;
     outline: 2px solid lightblue;
     border: 1px solid lightblue;
     border-radius: 6px;
-    font-weight: 800;
-    font-size: 32px;
-    padding: 3px;
+    
+    /* padding: 3px; */
 
 }
 
@@ -32,6 +31,16 @@ transform: translateY(-232px);
 align-items: flex-end;
 color: lightsteelblue;
 
+}
+
+.title{
+    font-weight: 600;
+        font-size: 32px;
+    color: white;
+    width: 100%;
+    display: block;
+    background-color: rgb(0, 0, 0, 0.4);
+    padding: 3px;
 }
 
 
