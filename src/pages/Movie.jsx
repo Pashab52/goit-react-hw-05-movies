@@ -52,21 +52,28 @@ const Movie = () => {
     <div className="movie-wrap">
       <SearchBar handleOnSubmit={handleOnSubmit} showLoader={showLoader} />
 
-      <ul className="movie-list">
-        {movies &&
-          movies.map(
-            ({ id, title, poster_path, backdrop_path, release_date }) => (
-              <MovieSearchItem
-                key={id}
-                id={id}
-                title={title}
-                poster={poster_path}
-                poster2={backdrop_path}
-                date={release_date}
-              />
+      {movies && (
+        <ul className="movie-list">
+          {movies.length ? (
+            movies.map(
+              ({ id, title, poster_path, backdrop_path, release_date }) => (
+                <MovieSearchItem
+                  key={id}
+                  id={id}
+                  title={title}
+                  poster={poster_path}
+                  poster2={backdrop_path}
+                  date={release_date}
+                />
+              )
             )
+          ) : (
+            <li className="nomovies-wrap">
+              <p className="cast-char">Nothing is found for your request!</p>
+            </li>
           )}
-      </ul>
+        </ul>
+      )}
     </div>
   );
 };

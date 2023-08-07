@@ -271,7 +271,8 @@ border: 5px solid lightblue;
 .cast-char {
   
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: 600;
   
 }
 
@@ -465,4 +466,12 @@ border: 5px solid lightblue;
   object-position: 1px 0;
   object-fit: cover;
   
+}
+
+
+.nomovies-wrap {
+  border: 5px solid lightblue;
+  background-color: lightsteelblue;
+  padding: 10px;
+  width: 100%;
 }
