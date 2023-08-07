@@ -120,43 +120,55 @@ border: 5px solid lightblue;
 .home-wrap{
   max-width: 1400px;
   background-color: lightsteelblue;
-  height: 1202px;
- padding-top: 20px;
+  /* height: 1202px; */
+ /* padding-top: 20px; */
   display: flex;
   flex-direction: column;
- 
   margin-bottom: 5px;
   border: 5px solid lightblue;
   border-radius: 1px;
   overflow: hidden;
-  
 }
 
-.list{
- 
-  max-width: 500px;
-  /* margin-left: auto;
-    margin-right: auto; */
-    
-}
 
 .home-title-wrap{
-    max-width: 1000px;
+    /* max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
     border: 8px solid #3f51b5;
     margin-bottom: 20px;
     border-radius: 8px; 
-    padding: 20px;
+    padding: 20px; */
     
+    padding-top: 30px;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    max-width: 1400px;
+    height: 250px;
+    background-image: url(./components/img/cinema.jpg);
+    background-size: contain;
+    background-position: 440px 0;
+    margin-bottom: 20px;
+    /* border-bottom: 5px solid lightblue; */
     
+}
+
+.list {
+  max-width: 500px;
+  /* margin-left: auto;
+    margin-right: auto; */
+
 }
 
 .home-title {
   font-size: 62px;
   text-align: center;
   font-weight: 900;  
-  color:#3f51b5;
+  color: white;
+  /* border: 8px solid #3f51b5; */
+  padding: 10px 50px;
+  border-radius: 8px;
 }
 
 .trend-title{
