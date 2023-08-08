@@ -120,7 +120,7 @@ border: 5px solid lightblue;
 .home-wrap{
   max-width: 1400px;
   background-color: lightsteelblue;
-  /* height: 1202px; */
+  height: 1306px;
  /* padding-top: 20px; */
   display: flex;
   flex-direction: column;
